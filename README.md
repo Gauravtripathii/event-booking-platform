@@ -31,4 +31,15 @@ Optional backend integration can be done with **Spring Boot** for production‑r
 ---
 
 
-# Home Page
+# Home Page Admin
+![home page](./screenshots/home_admin.png)
+
+# Add Event (admin only)
+![add event page](./screenshots/add_event.png)
+
+# Edit Event (admin only)
+![edit event page](./screenshots/edit.png)
+
+# Home Page User
+![edit event page](./screenshots/home_user.png)
+
