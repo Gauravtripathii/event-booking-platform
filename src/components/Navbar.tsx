@@ -2,7 +2,14 @@ import { NavLink } from "react-router-dom";
 
 import { Home, Calendar, CalendarCog } from "lucide-react";
 
-export default function Navbar({ authUser, updateAuthUserCallback }) {
+import type { UserResponse } from "../types/userTypes";
+
+interface NavbarProps {
+  authUser: UserResponse | null;
+  updateAuthUserCallback: (username: string, email: string, role: string) => void;
+}
+
+export default function Navbar({ authUser, updateAuthUserCallback }: NavbarProps) {
 
     const handleLogout = () => {
         localStorage.removeItem('auth_user');

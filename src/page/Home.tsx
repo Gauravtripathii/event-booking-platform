@@ -6,8 +6,15 @@ import toast from "react-hot-toast";
 
 import Navbar from "../components/Navbar";
 import type { EventData } from "../types/eventTypes";
+import type { UserResponse } from "../types/userTypes";
 
-export default function Home({ authUser, updateAuthUserCallback }) {
+
+interface HomeProps {
+  authUser: UserResponse | null;
+  updateAuthUserCallback: (username: string, email: string, role: string) => void;
+}
+
+export default function Home({ authUser, updateAuthUserCallback }: HomeProps) {
     const [events, setEvents] = useState<EventData[]>([]);
     const navigate = useNavigate();
 

@@ -8,7 +8,7 @@ import { Calendar } from "lucide-react";
 export default function AddEvent() {
     const navigate = useNavigate();
 
-    const [eventData, setEventData] = useState<EventData>({
+    const [eventData, setEventData] = useState<EventData | null>({
         id: "",
         title: "",
         description: "",

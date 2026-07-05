@@ -17,7 +17,7 @@ import EditEvent from "./page/EditEvent";
 
 export default function App() {
 
-  const [authUser, setAuthUser] = useState<UserResponse>(null);
+  const [authUser, setAuthUser] = useState<UserResponse | null>(null);
 
   const updateAuthUserCallback = (username: string, email: string, role: any) => {
     if (username === "")

@@ -11,10 +11,10 @@ import type { UserData } from "../types/userTypes";
 export default function Signup() {
     const navigate = useNavigate();
 
-    const [userData, setUserData] = useState<UserData>(null);
-    const [confirmPasswordData, setConfirmPasswordData] = useState<string>(null);
+    const [userData, setUserData] = useState<UserData | null>(null);
+    const [confirmPasswordData, setConfirmPasswordData] = useState<string | null>(null);
 
-    const handleSignup = event => {
+    const handleSignup = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         try {
 
@@ -36,7 +36,7 @@ export default function Signup() {
             console.log("User saved locally:", userData);
             toast.success("User sign up success!");
             navigate("/login");
-        } catch (error) {
+        } catch (error: any) {
             console.log(error);
             toast.error(error.message);
         }
@@ -53,7 +53,7 @@ export default function Signup() {
             
             <h1 className="text-2xl font-bold">Create an account</h1>
 
-            <form className="shadow-lg p-5 rounded-lg flex flex-col gap-3">
+            <form onSubmit={handleSignup} className="shadow-lg p-5 rounded-lg flex flex-col gap-3">
 
                 <p className="flex flex-col">
                     <label className="text-gray-700">Username</label>
@@ -75,7 +75,7 @@ export default function Signup() {
                     <input type="password" placeholder="Confirm your password" className="px-3 py-2 rounded-lg border border-gray-400 text-gray-600 outline-none" value={confirmPasswordData} onChange={e => setConfirmPasswordData(e.target.value)} />
                 </p>
 
-                <button onClick={handleSignup} className="bg-blue-600 text-white p-3 rounded-lg cursor-pointer hover:bg-purple-900 transition-all">Create your account</button>
+                <button type="submit" className="bg-blue-600 text-white p-3 rounded-lg cursor-pointer hover:bg-purple-900 transition-all">Create your account</button>
 
                 <p className="text-gray-600">Already have an account? <NavLink to={"/login"} className="text-blue-600 underline">Login</NavLink></p>
 
