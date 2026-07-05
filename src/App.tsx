@@ -34,7 +34,8 @@ export default function App() {
     if (!authUser) {
       const authUserString = localStorage.getItem("auth_user");
       const searchUser = authUserString ? JSON.parse(authUserString) : null;
-      updateAuthUserCallback(searchUser.username, searchUser.email, searchUser.role);
+      if (searchUser)
+        updateAuthUserCallback(searchUser.username, searchUser.email, searchUser.role);
     }
   }, [])
 
