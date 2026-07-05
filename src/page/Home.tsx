@@ -64,8 +64,7 @@ export default function Home({ authUser, updateAuthUserCallback }: HomeProps) {
                     <p className="text-gray-600">No events available.</p>
                 ) : (
                     events.map((event) => {
-                        const alreadyBooked =
-                            authUser && event.attendees.includes(authUser.email);
+                        const alreadyBooked = !!(authUser && event.attendees.includes(authUser.email));
 
                         return (
                             <div
