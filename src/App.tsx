@@ -32,9 +32,9 @@ export default function App() {
 
   useEffect(() => {
     if (!authUser) {
-      const searchUser = JSON.parse(localStorage.getItem('auth_user'));
+      const authUserString = localStorage.getItem("auth_user");
+      const searchUser = authUserString ? JSON.parse(authUserString) : null;
       updateAuthUserCallback(searchUser.username, searchUser.email, searchUser.role);
-
     }
   }, [])
 
