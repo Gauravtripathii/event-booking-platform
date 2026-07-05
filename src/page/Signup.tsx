@@ -31,7 +31,7 @@ export default function Signup() {
 
             const existingUsers: UserData[] = JSON.parse(localStorage.getItem("users") || "[]");
             if (userData.username === "admin") existingUsers.push({ ...userData, role: 'ADMIN' });
-            existingUsers.push(userData);
+            else existingUsers.push(userData);
             localStorage.setItem("users", JSON.stringify(existingUsers));
 
             toast.success("User sign up success!");
