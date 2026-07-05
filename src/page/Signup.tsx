@@ -30,7 +30,7 @@ export default function Signup() {
             if (!userData.password) throw new Error("Password can't be blank!");
 
             const existingUsers: UserData[] = JSON.parse(localStorage.getItem("users") || "[]");
-            if (userData.username === "admin@gmail.com") existingUsers.push({ ...userData, role: 'ADMIN' });
+            if (userData.username === "admin") existingUsers.push({ ...userData, role: 'ADMIN' });
             existingUsers.push(userData);
             localStorage.setItem("users", JSON.stringify(existingUsers));
 
